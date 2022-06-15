@@ -1,0 +1,37 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ title }}
+{%  endblock %}
+
+{% block content %}
+
+{% for el in tasks %}
+    {% if el.count == 1  %}
+        {% block content1 %}
+            <div class="alert alert-warning mt-2">
+                <h3>{{ el.title }}</h3>
+                <img src="{{ el.picture.url }}">
+                <p>{{ el.content }}</p>
+            </div>
+        {%  endblock %}
+    {% elif el.count == 2  %}
+        {% block content2 %}
+            <div class="alert alert-warning mt-2">
+                <h3>{{ el.title }}</h3>
+                <img src="{{ el.picture.url }}">
+                <p>{{ el.content }}</p>
+            </div>
+        {%  endblock %}
+    {% elif el.count == 3  %}
+        {% block content3 %}
+            <div class="alert alert-warning mt-2">
+                <h3>{{ el.title }}</h3>
+                <img src="{{ el.picture.url }}">
+                <p>{{ el.content }}</p>
+            </div>
+        {%  endblock %}
+    {% endif %}
+{% endfor %}
+{% endblock %}
+
